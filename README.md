@@ -168,7 +168,7 @@ Each of these has a patch or workaround that worked for me in that container. I 
 - **The loader has changed since the build I used.** On `main`, standard HF safetensors models normally go through a DCP path. That path logs `Checkpoint key mismatch ... missing=N` and loads strictly for single-part models, so on `main` this may now fail loudly instead of silently. I have not re-run on `main`.
 - **The custom path isn't affected.** Automodel's custom Nemotron V3 implementation (`force_hf: false`, `NemotronV3StateDictAdapter`) merges experts itself. The gap is the `force_hf: true` / native-transformers path.
 - **No existing report found.** I searched NVIDIA-NeMo/Automodel and NVIDIA-NeMo/RL issues and PRs for `nemotron_h`, `requires_tensor_merging`, `MODELS_REQUIRING_TENSOR_MERGING`, "experts not loaded" and similar terms. The closest is #3532, which is about memory, not this.
-- **Not yet reported.** I'm preparing an issue for NVIDIA-NeMo/Automodel, with a suggested patch against `main`: add `nemotron_h` to the set, with a guard for the remote-code class, and warn on unloaded base params.
+- **Reported upstream:** [NVIDIA-NeMo/Automodel#4357](https://github.com/NVIDIA-NeMo/Automodel/issues/4357), with a suggested patch against `main`: add `nemotron_h` to the set, with a guard for the remote-code class, and warn on unloaded base params.
 
 ## Repo contents
 
