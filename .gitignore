@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+
+# Model artifacts and data never belong in this repo
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.distcp
+*.jsonl
+checkpoints/
+results/
+
+# Local env / editor
+.env
+.env.*
+.DS_Store
+.idea/
+.vscode/
